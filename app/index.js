@@ -5,13 +5,16 @@ import { StackNavigator } from 'react-navigation'
 
 import configureStore from "./store/configureStore";
 import EventsScreen from "./screens/EventsScreen";
-
+import EventScreen from "./screens/EventScreen";
 
 global.store = configureStore();
 
 const AppNavigator = StackNavigator({
   Events: {
     screen: EventsScreen,
+  },
+  Event: {
+    screen: EventScreen,
   }
 });
 

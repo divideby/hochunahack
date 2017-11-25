@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import actionTypes from "./constants/actionTypes";
+import * as actionTypes from "./constants/actionTypes";
 const API_URL = "http://api.hochuna.com/";
 
 function apiRequest(urlSuffix, params = {}, successCallback, failCallback) {
@@ -23,7 +23,7 @@ export const getEvents = () => {
       console.log("DTDBG: events ", events);
       global.store.dispatch({
         type: actionTypes.SUCCESS_RETRIEVE_EVENTS,
-        events: events,
+        events,
       });
     },
     error => {

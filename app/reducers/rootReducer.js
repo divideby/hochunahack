@@ -3,7 +3,8 @@ import auth from "./auth";
 import events from "./events";
 
 const rootReducer = combineReducers({
-  auth
+  auth,
+  events,
 });
 
 export default rootReducer;
