@@ -1,31 +1,39 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import MapView from "react-native-maps";
+import { connect } from "react-redux";
 
 class MapScreen extends Component {
   render() {
-    const latlng = {
-      latitude: 37.78825,
-      longitude: -122.4324,
-    };
     return (
       <View style={{ flex: 1 }}>
         <MapView
           style={{ flex: 1 }}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            longitude: 52.29778,
+            latitude: 104.29639,
+            latitudeDelta: 0.02,
+            longitudeDelta: 0.02,
           }}
         >
-          <MapView.Marker coordinate={latlng}>
-            <View style={{ width: 20, height: 20, backgroundColor: "red" }} />
-          </MapView.Marker>
+          {this.props.events.map((event, index) => (
+            <MapView.Marker
+              coordinate={{
+                longitude: event.coords.longitude,
+                latitude: event.coords.latitude,
+              }}
+            />
+          ))}
         </MapView>
       </View>
     );
   }
 }
 
-export default MapScreen;
+function mapStateToProps(state) {
+  return {
+    events: state.events,
+  };
+}
+
+export default connect(mapStateToProps)(MapScreen);

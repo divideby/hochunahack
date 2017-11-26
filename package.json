@@ -14,6 +14,7 @@
 		"nachos-ui": "^0.1.2",
 		"react": "16.0.0",
 		"react-native": "0.50.4",
+		"react-native-datepicker": "^1.6.0",
 		"react-native-maps": "^0.17.1",
 		"react-native-vector-icons": "^4.4.2",
 		"react-navigation": "^1.0.0-beta.21",
